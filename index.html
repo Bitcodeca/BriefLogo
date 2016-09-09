@@ -15,17 +15,26 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <style>
+            .rayaazul {position: absolute; width: 100%; height: 40%; z-index: -1; }
+            .padding { padding: 3% 0 3% 0;}
+            .padding20px {padding: 20px;}
+            i { color: #616161; }
+        </style>
     </head>
-    <body ng-app="contactApp">
+    <body ng-app="contactApp" class="grey lighten-4">
+            <div class="rayaazul blue"></div>
             <div class="container">
                 <div class="col s12">
+                    <div class="center-align padding">
+                        <img src="logoemblema2.png" class="responsive-img">
+                    </div>
+                    <div class="card-panel">
                     <h3 class="center-align" >Creación de Identidad Gráfica</h3>
                     <div class="divider"></div>
                     <br>
-                    <div class="divider"></div>
-                    <br><br>
 
-                    <div ng-controller="ContactController">
+                    <div ng-controller="ContactController" class="padding20px">
 
                         <form ng-submit="submit(contactform)" name="contactform" method="post" action="" role="form">
                             <div class="row">
@@ -45,8 +54,20 @@
                                 <span class=" " ng-class="{ 'has-error': contactform.p1.$invalid && submitted }">
                                     <h5>Descripción de la empresa</h5>
                                     <div class="input-field">
-                                        <i class="material-icons prefix">pageview</i>
+                                        <i class="material-icons prefix">mode_edit</i>
                                         <textarea ng-model="formData.p1" id="p1" name="p1"  class="materialize-textarea"></textarea>
+                                    </div>
+
+                                </span>
+                            </div>
+                    <div class="divider"></div>
+                            <div class="row">
+
+                                <span class=" " ng-class="{ 'has-error': contactform.p13.$invalid && submitted }">
+                                    <h5>Eslogan de la empresa</h5>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">fingerprint</i>
+                                        <textarea ng-model="formData.p13" id="p13" name="p13"  class="materialize-textarea"></textarea>
                                     </div>
 
                                 </span>
@@ -102,7 +123,7 @@
                                 <span class=" " ng-class="{ 'has-error': contactform.p6.$invalid && submitted }">
                                     <h5>¿Cómo es el cliente potencial de los productos o servicios de la empresa? Segmentos de mercado en los que se quiere potenciar la imagen de la empresa, producto o servicio </h5>
                                     <div class="input-field">
-                                        <i class="material-icons prefix">mood</i>
+                                        <i class="material-icons prefix">group</i>
                                         <textarea ng-model="formData.p6" id="p6" name="p6"  class="materialize-textarea"></textarea>
                                     </div>
 
@@ -112,10 +133,22 @@
                             <div class="row">
 
                                 <span class=" " ng-class="{ 'has-error': contactform.p7.$invalid && submitted }">
-                                    <h5>¿Qué idea inicial tiene sobre el logo, colores corporativos? Quizás haya logos de otras empresas (pueden ser de otros sectores) que sirvan como referencia de estilo </h5>
+                                    <h5>¿Qué idea inicial tiene sobre el logo, colores corporativos? </h5>
                                     <div class="input-field">
-                                        <i class="material-icons prefix">monochrome_photos</i>
+                                        <i class="material-icons prefix">wb_incandescent</i>
                                         <textarea ng-model="formData.p7" id="p7" name="p7"  class="materialize-textarea"></textarea>
+                                    </div>
+
+                                </span>
+                            </div>
+                    <div class="divider"></div>
+                            <div class="row">
+
+                                <span class=" " ng-class="{ 'has-error': contactform.p11.$invalid && submitted }">
+                                    <h5>¿Qué logos de otras empresas (pueden ser de otros sectores) le gusta?  </h5>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">remove_red_eye</i>
+                                        <textarea ng-model="formData.p11" id="p11" name="p11"  class="materialize-textarea"></textarea>
                                     </div>
 
                                 </span>
@@ -126,7 +159,7 @@
                                 <span class=" " ng-class="{ 'has-error': contactform.p8.$invalid && submitted }">
                                     <h5>Elementos y colores que debe incluir el logo. (Ejemplo: Se debe de incluir un martillo verde porque es el símbolo de…)</h5>
                                     <div class="input-field">
-                                        <i class="material-icons prefix">spellcheck</i>
+                                        <i class="material-icons prefix">palette</i>
                                         <textarea ng-model="formData.p8" id="p8" name="p8"  class="materialize-textarea"></textarea>
                                     </div>
 
@@ -147,22 +180,35 @@
                     <div class="divider"></div>
                             <div class="row">
 
+                                <span class=" " ng-class="{ 'has-error': contactform.p12.$invalid && submitted }">
+                                    <h5>¿Qué aplicaciones tendrá su logo? (Papelería, uniformes, página web, etc...)</h5>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">photo</i>
+                                        <textarea ng-model="formData.p12" id="p12" name="p12"  class="materialize-textarea"></textarea>
+                                    </div>
+
+                                </span>
+                            </div>
+                    <div class="divider"></div>
+                            <div class="row">
+
                                 <span class=" " ng-class="{ 'has-error': contactform.p10.$invalid && submitted }">
                                     <h5>Otros datos que puedan ser importantes para el proceso de diseño. </h5>
                                     <div class="input-field">
-                                        <i class="material-icons prefix">thumb_up</i>
+                                        <i class="material-icons prefix">comment</i>
                                         <textarea ng-model="formData.p10" id="p10" name="p10"  class="materialize-textarea"></textarea>
                                     </div>
 
                                 </span>
                             </div>
                             <div class="row center-align">
-                                <button type="submit" class="btn " ng-disabled="submitButtonDisabled"><i class="material-icons left">send</i>Enviar</button>
+                                <button type="submit" class="btn blue" ng-disabled="submitButtonDisabled"><i class="material-icons left white-text">send</i>{{ searchButtonText }}</button>
                             </div>
                         </form>
-                        <h2 ng-class="result" class="white-text center-align" style="padding: 15px; margin: 0;">
+                        <h3 ng-class="result" class="white-text center-align" style="padding: 15px; margin: 0;">
                             {{ resultMessage }}
-                        </h2>
+                        </h3>
+                    </div>
                 </div>
             </div>
 

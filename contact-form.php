@@ -22,6 +22,9 @@ if (isset($_POST['p0'])) {
     $p8='';
     $p9='';
     $p10='';
+    $p11='';
+    $p12='';
+    $p13='';
 
 
     if (isset($_POST['p0'])) {
@@ -79,11 +82,26 @@ if (isset($_POST['p0'])) {
             $p10=$_POST['p10'];
         }
     }
+    if (isset($_POST['p11'])) {
+        if (!empty($_POST['p11'])) {
+            $p11=$_POST['p11'];
+        }
+    }
+    if (isset($_POST['p12'])) {
+        if (!empty($_POST['p12'])) {
+            $p12=$_POST['p12'];
+        }
+    }
+    if (isset($_POST['p13'])) {
+        if (!empty($_POST['p13'])) {
+            $p13=$_POST['p13'];
+        }
+    }
 
     $mail = new PHPMailer();
     $mail->CharSet = 'UTF-8';                      
-    $mail->From = $_POST['p0'];
-    $mail->FromName = $_POST['p0'];
+    $mail->From = 'bitcodemail@gmail.com';
+    $mail->FromName = 'Brief para Logo';
     $mail->AddAddress('bitcodemail@gmail.com');
     $mail->Subject = 'Respuesta de Brief para elaboración de logotipo';
 
@@ -93,7 +111,9 @@ if (isset($_POST['p0'])) {
         ' .$p1 . "\r\n\r\n" .'
     ¿Por qué motivo cree que los clientes eligen sus productos o servicios? 
         ' .$p2 . "\r\n\r\n" .'
-    ¿Qué valores defiende y promueve su empresa? ¿Qué valores destacaría de su empresa? 
+    Eslogan de la empresa
+        ' . $p13. "\r\n\r\n" .'
+    ¿Qué valores defiende y promueve su empresa?
         ' .$p3. "\r\n\r\n" .'
     ¿Qué le gustaría que los demás vieran en su empresa? 
         ' .$p4 . "\r\n\r\n" .'
@@ -108,8 +128,11 @@ if (isset($_POST['p0'])) {
     Elementos que en ningún caso debe incluir el logo. (Ejemplo: Elementos que tenga mala imagen dentro del sector) 
         ' .$p9 . "\r\n\r\n" .'
     Otros datos que puedan ser importantes para el proceso de diseño.
-        ' . $p10;
-
+        ' . $p10 . "\r\n\r\n" .'
+    ¿Qué logos de otras empresas (pueden ser de otros sectores) le gusta?
+        ' . $p11 . "\r\n\r\n" .'
+   ¿Qué aplicaciones tendrá su logo? (Papelería, uniformes, página web, etc...)
+        ' . $p12;
 
     if(!$mail->send()) {
         $data = array('success' => false, 'message' => 'No se pudo enviar. Mailer Error: ' . $mail->ErrorInfo);
